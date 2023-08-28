@@ -1,0 +1,16 @@
+/**
+* @author Yves Hélie - yves.helie@cegep-ste-foy.qc.ca
+*/
+
+.listeInteractivite {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 0;
+  &__item {
+    flex: 1 1 100%;
+  }
+}

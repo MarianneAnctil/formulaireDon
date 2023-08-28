@@ -1,15 +1,19 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
-  <meta charset="utf-8" />
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>HTML5 - Structure sémantique</title>
 </head>
 
 <body>
 
 	<header>
-	 <h1>Entete de site</h1>   
+
 		<nav>
 			<ul>
 			  <li><a href="">Menu 1</a></li>
@@ -17,40 +21,173 @@
 			  <li><a href="">Menu 3</a></li>
 			</ul>
 		</nav>
+		<h1>Formulaire de don</h1>
 	</header>
 
 	<main>
 		<div id="container">
-			<h2>Entete de page</h2>
 			<section>
-				<h3>Entete de section</h3>
-				<article>
-					<header>
-						<h4>Entete d'article</h4>
-					</header>
-					<p>Lorem ipsum dolor HTML5 nunc aut nunquam sit amet, consectetur adipiscing elit. Vivamus at est eros, vel fringilla urna.</p>
-					<p>Per inceptos himenaeos. Quisque feugiat, justo at vehicula pellentesque, turpis lorem dictum nunc.</p>
-					<footer>
-						<h5>Pied d'article</h5>
-					</footer>
-				</article>
-				<article>
-					<header>
-						<h4>Entete d'article</h4>
-					</header>
-					<p>Lorem ipsum dolor nunc aut nunquam sit amet, consectetur adipiscing elit. Vivamus at est eros, vel fringilla urna. Pellentesque odio</p>
-					<footer>
-						<h5>Pied d'article</h5>
-					</footer>
-				</article>
+				<div>
+					<img src="*" alt="*">
+					<p>1. Votre don</p>
+				</div>
+				<div>
+					<img src="*" alt="*">
+					<p>2. Vos informations</p>
+				</div>
+				<div>
+					<img src="*" alt="*">
+					<p>3. Paiement</p>
+				</div>
+				<div>
+					<img src="*" alt="*">
+					<p>4. Confirmation</p>
+				</div>
 			</section>
+
+			<section>
+				<section>
+				<h2>Don</h2>
+				<form>
+					<h3>Sélectionner le montant</h3>
+					<div>
+						<label><input type="radio" name="radio" value="individuel" /> Individuel</label>
+						<label><input type="radio" name="radio" value="corporatif" /> Corporatif</label>
+					</div>
+				</form>
+				<form>
+					<h3>Sélectionner le montant</h3>
+					<div>
+					<label><input type="radio" name="radio" value="25$" /> 25$</label>
+					<label><input type="radio" name="radio" value="50$" /> 50$</label>
+					<label><input type="radio" name="radio" value="100$" /> 100$</label>
+					<label><input type="radio" name="radio" value="250$" /> 250$</label>
+					<label><input type="radio" name="radio" value="500$" /> 500$</label>
+					<label><input type="radio" name="radio" value="Autre" /> Autre</label>
+					</div>
+					<div>
+						<form>
+							<label>
+								Montant:
+								<input type="text" />
+							</label>
+						</form>
+					</div>
+				</form>
+				<form>
+					<h3>Type d'hommage</h3>
+					<div>
+						<label><input type="radio" name="radio" value="aucun" /> Aucun hommage</label>
+						<label><input type="radio" name="radio" value="honneur" /> En l'honneur de</label>
+						<label><input type="radio" name="radio" value="memoire" /> À la mémoire de</label>
+					</div>
+				</form>
+				<form>
+					<h3>Sélectionner la fréquence du don</h3>
+					<div>
+						<label><input type="radio" name="radio" value="unique" /> Unique</label>
+						<label><input type="radio" name="radio" value="mensuel" /> Mensuel</label>
+					</div>
+				</form>
+				</section>
+				<section>
+					<h2>Contact</h2>
+
+					<form>
+						<label>
+							Prénom:
+							<input required  type="text" />
+						</label>
+					</form>
+					<form>
+						<label>
+							Nom:
+							<input required  type="text" />
+						</label>
+					</form>
+
+					<form>
+						<label>
+							Adresse:
+							<input required  type="text" />
+						</label>
+					</form>
+					<form>
+						<label>
+							Appartement:
+							<input type="text" />
+						</label>
+					</form>
+
+					<form>
+						<label>
+							Ville:
+							<input required  type="text" />
+						</label>
+					</form>
+
+					<label for="pays">Pays: </label>
+					<select required  id="pays">
+						<option value="can">Canada</option>
+						<option value="eu">États-Unis</option>
+						<option value="fr">France</option>
+						<option value="amg">Allemagne</option>
+					</select>
+
+					<label for="province">Province: </label>
+
+					<select required  id="province">
+						<option value="qc">Québec</option>
+						<option value="on">Ontario</option>
+						<option value="ab">Alberta</option>
+						<option value="bc">Colombie-Britanniqiue</option>
+					</select>
+
+					<form>
+						<label>
+							Code postal:
+							<input required  type="text" />
+						</label>
+					</form>
+					<form>
+						<label>
+							Courriel:
+							<input required type="email" />
+						</label>
+					</form>
+					<input type="checkbox" id="infolettre" name="infolettre" value="infolettre">
+					<label for="infolettre"> J'accepte de m'inscrire à l'infolettre et de recevoir des nouvelles du Club.</label><br>
+				</section>
+				<button type="submit">Précédent</button>
+				<button type="submit">Suivant</button>
+			</section>
+
+			<section>
+				<h3>Paiement</h3>
+				<p>Sous-total: </p>
+				<p>Fréquence du don: </p>
+
+				<form>
+					<label>
+						Numéro de carte:
+						<input required  type="number" />
+					</label>
+					<label>
+						Expiration:
+						<input required  type="text" />
+					</label>
+				</form>
+				<form>
+					<label>
+						CVC:
+						<input required  type="number" />
+					</label>
+				</form>
+			</section>
+
 		</div>
 	</main>
-	
-	<aside>
-            <h3>Barre latérale</h3>
-            <p>Lorem ipsum dolor nunc aut nunquam sit amet, consectetur adipiscing elit. Vivamus at est eros, vel fringilla urna. Pellentesque odio rhoncus</p>
-	</aside>
+
 	
 	<footer>
 		<h3>Pied de page</h3>

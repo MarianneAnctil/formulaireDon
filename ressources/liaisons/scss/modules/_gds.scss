@@ -1,0 +1,25 @@
+/**
+* @author Yves Hélie - yves.helie@cegep-ste-foy.qc.ca
+* @todo Utiliser le mixin fontSize pour définir les tailles de polices
+*/
+
+.gds {
+  margin: 5em auto;
+  max-width: 800px;
+  &__titre {
+    font-size: 60px;
+    font-size: 6rem;
+    color: black;
+  }
+  &__sousTitre {
+    color: white;
+    background-color: darkgray;
+    font-size: 30px;
+    font-size: 3rem;
+    padding: 1rem;
+    text-align: left;
+  }
+  &__categorie {
+    border-bottom: 1px solid lightgray;
+  }
+}

@@ -1,0 +1,60 @@
+/**
+* @author Prenom Nom courriel
+* @todo Compléter selon l'énoncé de l'exercice
+* @todo Utiliser le sélecteur & pour les sélecteurs des différentes couleurs
+*/
+
+.palette {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 0;
+  &__item {
+    flex: 1 1 100%;
+    text-align: center;
+    margin-right: 2em;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &__couleur {
+    padding-top: 70%;
+    /* Complétez ici pour chacune des variations de couleurs
+     * (Ex. .palette__couleur--bleuMoyen)
+     * Utilisez & pour composer vos sélecteurs CSS selon l'approche BEM
+     */
+    &--bleuMoyen {
+      background-color: $bleuMoyen;
+      &-alpha75 {
+        background-color: transparentize($bleuMoyen, 0.75);
+      }
+      &-alpha50 {
+        background-color: transparentize($bleuMoyen, 0.5);
+      }
+    }
+    &--bleuPale {
+      background-color: $bleuPale;
+    }
+    &--vertLime {
+      background-color: $vertLime;
+      &-alpha75 {
+        background-color: transparentize($vertLime, 0.75);
+      }
+      &-alpha50 {
+        background-color: transparentize($vertLime, 0.5);
+      }
+    }
+    &--bleuMinuit {
+      background-color: $bleuMinuit;
+    }
+    &--bleuMarin {
+      background-color: $bleuMarin;
+    }
+  }
+  &__details {
+    font-size: 0.75em;
+  }
+}
