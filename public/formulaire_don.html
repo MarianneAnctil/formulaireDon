@@ -7,7 +7,7 @@
 	<meta name="viewport"
 		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>HTML5 - Structure sémantique</title>
+  <title>Formulaire de don</title>
 </head>
 
 <body>
@@ -27,22 +27,24 @@
 	<main>
 		<div id="container">
 			<section>
-				<div>
+				<ul>
+				<li>
 					<img src="*" alt="*">
 					<p>1. Votre don</p>
-				</div>
-				<div>
+				</li>
+				<li>
 					<img src="*" alt="*">
 					<p>2. Vos informations</p>
-				</div>
-				<div>
+				</li>
+				<li>
 					<img src="*" alt="*">
 					<p>3. Paiement</p>
-				</div>
-				<div>
+				</li>
+				<li>
 					<img src="*" alt="*">
 					<p>4. Confirmation</p>
-				</div>
+				</li>
+				</ul>
 			</section>
 
 			<section>
@@ -51,25 +53,25 @@
 				<form>
 					<h3>Sélectionner le montant</h3>
 					<div>
-						<label><input type="radio" name="radio" value="individuel" /> Individuel</label>
-						<label><input type="radio" name="radio" value="corporatif" /> Corporatif</label>
+						<label for="ind" ><input id="ind" type="radio" name="radio" value="individuel" /> Individuel</label>
+						<label for="corp" ><input id="corp" type="radio" name="radio" value="corporatif" /> Corporatif</label>
 					</div>
 				</form>
 				<form>
 					<h3>Sélectionner le montant</h3>
 					<div>
-					<label><input type="radio" name="radio" value="25$" /> 25$</label>
-					<label><input type="radio" name="radio" value="50$" /> 50$</label>
-					<label><input type="radio" name="radio" value="100$" /> 100$</label>
-					<label><input type="radio" name="radio" value="250$" /> 250$</label>
-					<label><input type="radio" name="radio" value="500$" /> 500$</label>
-					<label><input type="radio" name="radio" value="Autre" /> Autre</label>
+					<label for="25" ><input id="25" type="radio" name="radio" value="25$" /> 25$</label>
+					<label for="50" ><input id="50" type="radio" name="radio" value="50$" /> 50$</label>
+					<label for="100" ><input id="100" type="radio" name="radio" value="100$" /> 100$</label>
+					<label for="250" ><input id="250" type="radio" name="radio" value="250$" /> 250$</label>
+					<label for="500" ><input id="500" type="radio" name="radio" value="500$" /> 500$</label>
+					<label for="autre" ><input id="autre" type="radio" name="radio" value="Autre" /> Autre</label>
 					</div>
 					<div>
 						<form>
-							<label>
+							<label for="montant">
 								Montant:
-								<input type="text" />
+								<input id="montant" type="text" />
 							</label>
 						</form>
 					</div>
@@ -77,52 +79,58 @@
 				<form>
 					<h3>Type d'hommage</h3>
 					<div>
-						<label><input type="radio" name="radio" value="aucun" /> Aucun hommage</label>
-						<label><input type="radio" name="radio" value="honneur" /> En l'honneur de</label>
-						<label><input type="radio" name="radio" value="memoire" /> À la mémoire de</label>
+						<label for="aucun" ><input id="aucun" type="radio" name="radio" value="aucun" /> Aucun hommage</label>
+						<label for="honneur" ><input id="honneur" type="radio" name="radio" value="honneur" /> En l'honneur de</label>
+						<label for="memoire" ><input id="memoire" type="radio" name="radio" value="memoire" /> À la mémoire de</label>
 					</div>
 				</form>
 				<form>
 					<h3>Sélectionner la fréquence du don</h3>
 					<div>
-						<label><input type="radio" name="radio" value="unique" /> Unique</label>
-						<label><input type="radio" name="radio" value="mensuel" /> Mensuel</label>
+						<label for="unique" ><input id="unique" type="radio" name="radio" value="unique" /> Unique</label>
+						<label for="mensuel" ><input id="mensuel" type="radio" name="radio" value="mensuel" /> Mensuel</label>
 					</div>
 				</form>
 				</section>
 				<section>
 					<h2>Contact</h2>
 
+
+					<fieldset>
+						<legend>Informations sur le donateur</legend>
 					<form>
-						<label>
+						<label for="prenom" >
 							Prénom:
-							<input required  type="text" />
+							<input id="prenom" required  type="text" />
 						</label>
 					</form>
 					<form>
-						<label>
+						<label for="nom" >
 							Nom:
-							<input required  type="text" />
+							<input id="nom" required  type="text" />
 						</label>
 					</form>
+					</fieldset>
 
+					<fieldset>
+						<legend>Adresse</legend>
 					<form>
-						<label>
+						<label for="adresse" >
 							Adresse:
-							<input required  type="text" />
+							<input id="adresse" required  type="text" />
 						</label>
 					</form>
 					<form>
-						<label>
+						<label for="app" >
 							Appartement:
-							<input type="text" />
+							<input id="app" type="text" />
 						</label>
 					</form>
 
 					<form>
-						<label>
+						<label for="ville" >
 							Ville:
-							<input required  type="text" />
+							<input id="ville" required  type="text" />
 						</label>
 					</form>
 
@@ -144,22 +152,23 @@
 					</select>
 
 					<form>
-						<label>
+						<label for="codePost" >
 							Code postal:
-							<input required  type="text" />
+							<input id="codePost" required  type="text" />
 						</label>
 					</form>
+					</fieldset>
+
 					<form>
-						<label>
+						<label for="mail" >
 							Courriel:
-							<input required type="email" />
+							<input id="mail" required type="email" />
 						</label>
 					</form>
 					<input type="checkbox" id="infolettre" name="infolettre" value="infolettre">
 					<label for="infolettre"> J'accepte de m'inscrire à l'infolettre et de recevoir des nouvelles du Club.</label><br>
 				</section>
-				<button type="submit">Précédent</button>
-				<button type="submit">Suivant</button>
+
 			</section>
 
 			<section>
@@ -168,22 +177,24 @@
 				<p>Fréquence du don: </p>
 
 				<form>
-					<label>
+					<label for="numCarte" >
 						Numéro de carte:
-						<input required  type="number" />
+						<input id="numCarte" required  type="number" />
 					</label>
-					<label>
+					<label for="expCarte" >
 						Expiration:
-						<input required  type="text" />
+						<input id="expCarte" required  type="text" />
 					</label>
 				</form>
 				<form>
-					<label>
+					<label for="cvc" >
 						CVC:
-						<input required  type="number" />
+						<input id="cvc" required  type="number" />
 					</label>
 				</form>
 			</section>
+			<button type="submit">Précédent</button>
+			<button type="submit">Suivant</button>
 
 		</div>
 	</main>
