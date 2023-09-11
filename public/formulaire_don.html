@@ -7,12 +7,14 @@
 	<meta name="viewport"
 		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="liaisons/css/styles.css">
   <title>Formulaire de don</title>
 </head>
 
 <body>
 
 	<header>
+	<img src="liaisons/images/SVG/logo.svg" alt="logo club des petits déjeuners">
 
 		<nav>
 			<ul>
@@ -21,11 +23,11 @@
 			  <li><a href="">Menu 3</a></li>
 			</ul>
 		</nav>
-		<h1>Formulaire de don</h1>
+		<h1 class="form_h1 container">Formulaire de don</h1>
 	</header>
 
 	<main>
-		<div id="container">
+		<div id="container" class="container">
 			<section class="path">
 				<ul class="path__list">
 				<li class="path__list--item">
@@ -50,6 +52,7 @@
 			<section class="form" >
 				<section class="sec1" >
 				<h2 class="form__h2" >Don</h2>
+					<div class="underline"></div>
 				<form action="*" class="form__sec1" method="get">
 					<h3 class="form__h3">Sélectionner le type de don<span class="form__obligatoire">*</span></h3>
 					<span class="formulaire__erreur" id="err_type"></span>
@@ -89,13 +92,13 @@
 						<label for="unique" class="form__label--radio" ><input id="unique" class="form__input--radio" type="radio" name="radio__freq" value="unique" required/> Unique</label>
 						<label for="mensuel" class="form__label--radio" ><input id="mensuel" class="form__input--radio" type="radio" name="radio__freq" value="mensuel" /> Mensuel</label>
 					</div>
-					<button type="submit">Suivant</button>
+					<button class="btn__sec1 suivant" type="submit">Suivant</button>
 				</form>
 
 				</section>
 				<section class="sec2">
 					<h2 class="form__h2">Contact</h2>
-
+					<div class="underline"></div>
 					<form class="form__sec2">
 					<fieldset class="form__fieldset">
 						<legend class="form__legend">Informations sur le donateur</legend>
@@ -134,14 +137,14 @@
 
 
 
-					<label for="pays" class="form__label" >Pays<span class="form__obligatoire">*</span> </label>
+					<label for="pays" class="form__label" >Pays<span class="form__obligatoire">*</span> </label></br>
 						<span class="formulaire__erreur" id="err_pays"></span>
 					<select required  id="pays">
 						<option value="can">Canada</option>
 						<option value="eu">États-Unis</option>
 						<option value="fr">France</option>
 						<option value="amg">Allemagne</option>
-					</select>
+					</select></br>
 
 					<label for="province" class="form__label" >Province<span class="form__obligatoire">*</span> </label>
 						<span class="formulaire__erreur" id="err_prov"></span>
@@ -151,7 +154,7 @@
 						<option value="on">Ontario</option>
 						<option value="ab">Alberta</option>
 						<option value="bc">Colombie-Britanniqiue</option>
-					</select>
+					</select></br>
 
 						<label for="codePost"  class="form__label" >
 							Code postal<span class="form__obligatoire">*</span></label>
@@ -159,17 +162,19 @@
 						<span class="formulaire__erreur" id="err_zip"></span>
 
 					</fieldset>
-
-						<label for="mail"  class="form__label" >
+					<div class="courriel">
+						<label for="mail"  class="form__label--courriel" >
 							Courriel<span class="form__obligatoire">*</span></label>
 							<input id="mail" required class="form__textField form__textField--small" type="email" pattern="/^([\w\.\-]+)@([\w\-]+)((\.(\w){2,4})+)$/"/>
-						<span class="formulaire__erreur" id="err_email"></span>
+						<span class="formulaire__erreur" id="err_email"></span></br>
 
 
 						<input type="checkbox" id="infolettre" name="infolettre" value="infolettre">
 						<label for="infolettre" class="form__label" > J'accepte de m'inscrire à l'infolettre et de recevoir des nouvelles du Club.</label><br>
-						<button type="submit">Précédent</button>
-						<button type="submit">Suivant</button>
+					</div>
+						<button class="btn__sec2 precedent" type="submit">Précédent</button>
+						<button class="btn__sec2 suivant" type="submit">Suivant</button>
+
 					</form>
 
 				</section>

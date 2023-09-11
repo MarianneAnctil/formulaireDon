@@ -14,8 +14,9 @@
   src: 	url('../fonts/Futura.ttc') format('truetype');
 }
 
-$fontePrimaire : Futura, sans-serif;
-$fonteSecondaire : Arial, sans-serif;
+$fontePrimaire : Encode Sans Semi Condensed, sans-serif;
+$fonteSecondaire : Bahnschrift, sans-serif;
+$navFont : Sarabun, sans-serif;
 
 /** Palette de couleurs **/
 // Utiliser http://chir.ag/projects/name-that-color pour obtenir des noms uniques et mémorisables
@@ -27,6 +28,15 @@ $bleuPale: #68a8e8;
 $vertLime: #bbd531;
 $bleuMinuit: #012d61;
 $bleuMarin: #2678B5;
+
+
+$darkBlue: #055D69;
+$lightBlue: #8BB8BE;
+$blueishGrey: #435257;
+$flashBlue: #1FBED2;
+$error: #B60F0F;
+$background: #F0F0F0;
+
 
 $bleuMoyenTransparent : transparentize($bleuMoyen, 0.50);
 

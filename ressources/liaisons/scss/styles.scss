@@ -61,3 +61,190 @@
 @import 'modules/listeInteractivite';
 
 @import '../../../node_modules/normalize.scss/normalize.scss';
+
+ @mixin sectionForms{
+   background-color: white;
+   padding: 10px;
+   box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2) ;
+ }
+
+ @mixin styleBtn{
+   background-color:$darkBlue;
+   border-radius: 8px;
+   color:white;
+   padding: 10px 26px;
+   border-color: transparent;
+ }
+
+
+body{
+  background-color:$background;
+}
+ .container{
+   margin: 0 auto;
+   max-width: 280px;
+   padding: 0;
+ }
+
+
+h1{
+  font-size: 28px;
+  font-weight: bold;
+}
+ h2{
+   font-size: 24px;
+   font-weight: bold;
+ }
+
+ h3{
+   font-size: 20px;
+   font-weight: bold;
+ }
+ p{
+   font-size: 18px;
+ }
+ nav{
+   font-size: 16px;
+ }
+
+ @media (min-width: 800px) {
+   h1{
+     font-size: 38px;
+     font-weight: bold;
+   }
+   h2{
+     font-size: 34px;
+     font-weight: bold;
+   }
+
+   h3{
+     font-size: 26px;
+     font-weight: bold;
+   }
+   p{
+     font-size: 24px;
+   }
+   nav{
+     font-size: 18px;
+   }
+
+ }
+
+ ul{
+   list-style: none;
+ }
+ .path__list--item{
+   display: flex;
+   flex-direction: row;
+   align-items: start;
+ }
+
+
+
+ .form{
+   .form__h2{
+     margin-bottom: 2px;
+   }
+   .sec1{
+    @include sectionForms;
+     .underline{
+       position: absolute;
+       overflow: hidden;
+       width: 56px;
+       height: 6px;
+       content: '\a0';
+       background-color: $flashBlue;
+     }
+     .form__h3{
+       margin-bottom: 10px;
+     }
+     .form__typeDon{
+       display: flex;
+       flex-direction: column;
+       label{
+         margin-bottom: 6px;
+       }
+     }
+   .form__don{
+     display: flex;
+     flex-direction: column;
+     label{
+       margin-bottom: 6px;
+     }
+   }
+     .form__hommage{
+       display: flex;
+       flex-direction: column;
+       label{
+         margin-bottom: 6px;
+       }
+     }
+     .form__freqDon{
+       display: flex;
+       flex-direction: column;
+       label{
+         margin-bottom: 6px;
+       }
+     }
+
+     .btn__sec1{
+      @include styleBtn;
+
+     }
+   }
+   .sec2{
+     @include sectionForms;
+
+     .underline{
+       position: absolute;
+       overflow: hidden;
+       width: 106px;
+       height: 6px;
+       content: '\a0';
+       background-color: $flashBlue;
+     }
+     legend{
+       font-size: 20px;
+     }
+
+     .form__sec2{
+       margin-top: 20px;
+
+       .form__fieldset{
+         border-color:transparent;
+         border-left-color:$flashBlue;
+         border-left-width: 3px;
+
+        input{
+          margin-top: 4px;
+          margin-bottom: 14px;
+        }
+         select{
+           margin-top: 8px;
+           margin-bottom: 14px;
+           padding: 4px 8px;
+         }
+       }
+       .courriel{
+         margin: 10px 0;
+         #infolettre{
+           margin-top: 12px;
+         }
+       }
+
+       .btn__sec2{
+         @include styleBtn;
+       }
+
+     }
+   }
+   .sec3{
+     @include sectionForms;
+   }
+   .sec4{
+     @include sectionForms;
+   }
+
+
+ }
+
