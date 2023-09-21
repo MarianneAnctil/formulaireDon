@@ -1,0 +1,47 @@
+{
+    "prenom": {
+        "vide": "Vous devez entrer votre prénom.",
+        "pattern": "Pour le prénom, les accents français, les espaces, les tirets et les apostrophes sont permis."
+    },
+    "nom": {
+        "vide": "Vous devez entrer votre nom de famille.",
+        "pattern": "Pour le nom de famille, les accents français, les espaces, les tirets et les apostrophes sont permis."
+    },
+    "mail": {
+        "vide": "Vous devez entrer votre adresse courriel.",
+        "pattern": "Assurez-vous d'entrer une adresse courriel valide."
+    },
+    "adresse": {
+        "vide": "Vous devez entrer un sujet.",
+        "pattern": "Entrez une sujet valide."
+    },
+    "ville": {
+        "vide": "Vous devez entrer un sujet.",
+        "pattern": "Entrez une sujet valide."
+    },
+    "codePost": {
+        "vide": "Vous devez entrer un sujet.",
+        "pattern": "Entrez une sujet valide."
+    },
+    "pays": {
+        "vide": "Vous devez entrer un sujet.",
+        "pattern": "Entrez une sujet valide."
+    },
+    "province": {
+        "vide": "Vous devez entrer un sujet.",
+        "pattern": "Entrez une sujet valide."
+    },
+    "numCarte": {
+        "vide": "Vous devez entrer un sujet.",
+        "pattern": "Entrez une sujet valide."
+    },
+    "expCarte": {
+        "vide": "Vous devez entrer un sujet.",
+        "pattern": "Entrez une sujet valide."
+    },"cvv": {
+    "vide": "Vous devez entrer un sujet.",
+    "pattern": "Entrez une sujet valide."
+}
+
+
+}

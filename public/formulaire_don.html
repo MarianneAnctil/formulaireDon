@@ -8,20 +8,27 @@
 		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="liaisons/css/styles.css">
+<!--	<script src="liaisons/js/menu.js"></script>-->
+	<script src="https://kit.fontawesome.com/ebbc1aa60f.js" crossorigin="anonymous"></script>
   <title>Formulaire de don</title>
 </head>
 
 <body>
 
 	<header>
-	<img src="liaisons/images/SVG/logo.svg" alt="logo club des petits déjeuners">
+	<img class="logo" src="liaisons/images/SVG/logo.svg" alt="logo club des petits déjeuners">
 
-		<nav>
-			<ul>
-			  <li><a href="">Menu 1</a></li>
-			  <li><a href="">Menu 2</a></li>
-			  <li><a href="">Menu 3</a></li>
+		<nav class="nav">
+			<ul  class="nav__list">
+			  <li class="nav__list--item"><a class="donner" href="*">Donner</a></li>
+			  <li class="nav__list--item"><a href="*">Ce que nous faisons</a></li>
+			  <li class="nav__list--item"><a href="*">Qui nous sommes</a></li>
+				<li class="nav__list--item"><a href="*">Nos alliés</a></li>
+				<li class="nav__list--item"><a href="*">Covid-19</a></li>
+				<li class="nav__list--item"><a href="*">Le coin des écoles</a></li>
+				<li class="nav__list--item"><a href="*">Blogue</a></li>
 			</ul>
+
 		</nav>
 		<h1 class="form_h1 container">Formulaire de don</h1>
 	</header>
@@ -29,47 +36,46 @@
 	<main>
 		<div id="container" class="container">
 			<section class="path">
-				<ul class="path__list">
-				<li class="path__list--item">
-					<img src="*" alt="*">
+				<ul id="progressBar" class="path__list">
+				<li class="path__list--item ">
+					<img class="path__list--img" src="liaisons/images/SVG/moneyBag.svg" alt="*" style="width: 16%">
 					<p>1. Votre don</p>
 				</li>
-				<li class="path__list--item">
-					<img src="*" alt="*">
+				<li class="path__list--item inactive">
+					<img class="path__list--img" src="liaisons/images/SVG/infoUser.svg" alt="*" style="width: 12%">
 					<p>2. Vos informations</p>
 				</li>
-				<li class="path__list--item">
-					<img src="*" alt="*">
+				<li class="path__list--item inactive">
+					<img class="path__list--img " src="liaisons/images/SVG/creditCard.svg" alt="*" style="width: 18%">
 					<p>3. Paiement</p>
 				</li>
-				<li class="path__list--item">
-					<img src="*" alt="*">
+				<li class="path__list--item inactive">
+					<img class="path__list--img" src="liaisons/images/SVG/confirmation.svg" alt="*" style="width: 14%">
 					<p>4. Confirmation</p>
 				</li>
 				</ul>
 			</section>
-
-			<section class="form" >
-				<section class="sec1" >
+			<form action="*" class="form" method="get">
+				<fieldset class="sec1 step1" >
 				<h2 class="form__h2" >Don</h2>
 					<div class="underline"></div>
-				<form action="*" class="form__sec1" method="get">
+				<div  class="form__sec1" >
 					<h3 class="form__h3">Sélectionner le type de don<span class="form__obligatoire">*</span></h3>
 					<span class="formulaire__erreur" id="err_type"></span>
 					<div class="form__typeDon">
-						<label for="ind" class="form__label--radio" ><input id="ind" class="form__input--radio" type="radio" name="radio__type" value="individuel" required /> Individuel</label>
-						<label for="corp" class="form__label--radio" ><input id="corp" class="form__input--radio" type="radio" name="radio__type" value="corporatif" /> Corporatif</label>
+						<label for="ind" class="form__label--radio" ><input id="ind" class="form__input--radio typeDon" type="radio" name="radio__type" value="individuel" required /> Individuel</label>
+						<label for="corp" class="form__label--radio" ><input id="corp" class="form__input--radio typeDon" type="radio" name="radio__type" value="corporatif" /> Corporatif</label>
 					</div>
 
 					<h3 class="form__h3">Sélectionner le montant ($ CAD)<span class="form__obligatoire">*</span></h3>
 					<span class="formulaire__erreur" id="err_don"></span>
 					<div class="form__don">
-					<label for="25" class="form__label--radio" ><input id="25" class="form__input--radio" type="radio" name="radio__don" value="25" required /> 25$</label>
-					<label for="50" class="form__label--radio" ><input id="50" class="form__input--radio" type="radio" name="radio__don" value="50" /> 50$</label>
-					<label for="100" class="form__label--radio" ><input id="100" class="form__input--radio" type="radio" name="radio__don" value="100" /> 100$</label>
-					<label for="250" class="form__label--radio" ><input id="250" class="form__input--radio" type="radio" name="radio__don" value="250" /> 250$</label>
-					<label for="500" class="form__label--radio" ><input id="500" class="form__input--radio" type="radio" name="radio__don" value="500" /> 500$</label>
-					<label for="autre" class="form__label--radio" ><input id="autre" class="form__input--radio" type="radio" name="radio__don" value="autre" /> Autre</label>
+					<label for="25" class="form__label--radio montantDon" ><input id="25" class=" form__input--radio" type="radio" name="radio__don" value="25" required /> 25$</label>
+					<label for="50" class="form__label--radio montantDon" ><input id="50" class="form__input--radio" type="radio" name="radio__don" value="50" /> 50$</label>
+					<label for="100" class="form__label--radio montantDon" ><input id="100" class="form__input--radio" type="radio" name="radio__don" value="100" /> 100$</label>
+					<label for="250" class="form__label--radio montantDon" ><input id="250" class="form__input--radio" type="radio" name="radio__don" value="250" /> 250$</label>
+					<label for="500" class="form__label--radio montantDon" ><input id="500" class="form__input--radio" type="radio" name="radio__don" value="500" /> 500$</label>
+					<label for="autre" class="form__label--radio montantDon" ><input id="autre" class="form__input--radio" type="radio" name="radio__don" value="autre" /> Autre</label>
 					</div>
 					<div class="form__choisirMontant">
 							<label for="montant" class="form__label--radio" >
@@ -81,65 +87,76 @@
 					<h3 class="form__h3">Type d'hommage<span class="form__obligatoire">*</span></h3>
 					<span class="formulaire__erreur" id="err_hommage"></span>
 					<div class="form__hommage">
-						<label for="aucun" class="form__label--radio" ><input id="aucun" class="form__input--radio" type="radio" name="radio__hommage" value="aucun" required/> Aucun hommage</label>
-						<label for="honneur" class="form__label--radio" ><input id="honneur" class="form__input--radio" type="radio" name="radio__hommage" value="honneur" /> En l'honneur de</label>
-						<label for="memoire" class="form__label--radio" ><input id="memoire" class="form__input--radio" type="radio" name="radio__hommage" value="memoire" /> À la mémoire de</label>
+						<label for="aucun" class="form__label--radio" ><input id="aucun" class="form__input--radio hommageDon" type="radio" name="radio__hommage" value="aucun" required/> Aucun hommage</label>
+						<label for="honneur" class="form__label--radio" ><input id="honneur" class="form__input--radio hommageDon" type="radio" name="radio__hommage" value="honneur" /> En l'honneur de</label>
+						<label for="memoire" class="form__label--radio" ><input id="memoire" class="form__input--radio hommageDon" type="radio" name="radio__hommage" value="memoire" /> À la mémoire de</label>
 					</div>
 
 					<h3 class="form__h3">Sélectionner la fréquence du don<span class="form__obligatoire">*</span></h3>
 					<span class="formulaire__erreur" id="err_freq"></span>
 					<div class="form__freqDon">
-						<label for="unique" class="form__label--radio" ><input id="unique" class="form__input--radio" type="radio" name="radio__freq" value="unique" required/> Unique</label>
-						<label for="mensuel" class="form__label--radio" ><input id="mensuel" class="form__input--radio" type="radio" name="radio__freq" value="mensuel" /> Mensuel</label>
+						<label for="unique" class="form__label--radio" ><input id="unique" class="form__input--radio freqDon" type="radio" name="radio__freq" value="unique" required/> Unique</label>
+						<label for="mensuel" class="form__label--radio" ><input id="mensuel" class="form__input--radio freqDon" type="radio" name="radio__freq" value="mensuel" /> Mensuel</label>
 					</div>
-					<button class="btn__sec1 suivant" type="submit">Suivant</button>
-				</form>
+				</div>
 
-				</section>
-				<section class="sec2">
+				</fieldset>
+				<fieldset class="sec2 step2 etatEtape">
 					<h2 class="form__h2">Contact</h2>
 					<div class="underline"></div>
-					<form class="form__sec2">
+					<div class="form__sec2">
 					<fieldset class="form__fieldset">
 						<legend class="form__legend">Informations sur le donateur</legend>
 
+						<div class="info__display">
+						<div class="div__prenom">
 						<label for="prenom"  class="form__label" >
 							Prénom<span class="form__obligatoire">*</span></label>
-							<input id="prenom" required  class="form__textField form__textField--small" type="text" pattern="^[a-zA-ZÀ-ÿ -/']+$"/>
+							<input name="prenom" id="prenom" required  class="form__textField form__textField--medium" type="text" pattern="^[a-zA-ZÀ-ÿ -/']+$"/>
 						<span class="formulaire__erreur" id="err_prenom"></span>
+						</div>
 
-
+						<div class="div__nom">
 						<label for="nom"  class="form__label" >
 							Nom<span class="form__obligatoire">*</span></label>
-							<input id="nom" required  class="form__textField form__textField--small" type="text" pattern="^[a-zA-ZÀ-ÿ -/']+$"/>
+							<input name="nom" id="nom" required  class=" form__textField form__textField--medium" type="text" pattern="^[a-zA-ZÀ-ÿ -/']+$"/>
 						<span class="formulaire__erreur" id="err_nom"></span>
+							</div>
+						</div>
 
 						</fieldset>
 
 					<fieldset class="form__fieldset">
-						<legend class="form__legend">Adresse</legend>
 
+
+						<legend class="form__legend">Adresse</legend>
+						<div class="adresse__display">
+						<div class="div__adresse">
 						<label for="adresse"  class="form__label" >
 							Adresse<span class="form__obligatoire">*</span></label>
-							<input id="adresse" required  class="form__textField form__textField--small" type="text" />
+							<input name="adresse" id="adresse" required  class="form__textField form__textField--normal" type="text" pattern="^[0-9]+[a-zA-ZÀ-ÿ0-9 \-]+$"/>
 						<span class="formulaire__erreur" id="err_adresse"></span>
+							</div>
 
-
+						<div class="div__app">
 						<label for="app"  class="form__label" >
-							Appartement</label>
-							<input id="app" class="form__textField form__textField--small" type="text" />
+							Appartement</label></br>
+							<input name="app" id="app" class="form__textField form__textField--small" type="text" />
+						</div>
+						</div>
 
 
 						<label for="ville"  class="form__label" >
 							Ville<span class="form__obligatoire">*</span></label>
-							<input id="ville" required  class="form__textField form__textField--small" type="text" />
+							<input name="ville" id="ville" required  class="form__textField form__textField--normal" type="text" pattern="^[a-zA-ZÀ-ÿ0-9 '\-]+$"/>
 						<span class="formulaire__erreur" id="err_ville"></span>
 
 
 
 					<label for="pays" class="form__label" >Pays<span class="form__obligatoire">*</span> </label></br>
 						<span class="formulaire__erreur" id="err_pays"></span>
-					<select required  id="pays">
+					<select name="pays" required  id="pays">
+						<option value="select">Sélectionner un pays</option>
 						<option value="can">Canada</option>
 						<option value="eu">États-Unis</option>
 						<option value="fr">France</option>
@@ -149,7 +166,8 @@
 					<label for="province" class="form__label" >Province<span class="form__obligatoire">*</span> </label>
 						<span class="formulaire__erreur" id="err_prov"></span>
 
-					<select required  id="province">
+					<select name="province" required  id="province">
+						<option value="select">Sélectionner une province</option>
 						<option value="qc">Québec</option>
 						<option value="on">Ontario</option>
 						<option value="ab">Alberta</option>
@@ -157,60 +175,63 @@
 					</select></br>
 
 						<label for="codePost"  class="form__label" >
-							Code postal<span class="form__obligatoire">*</span></label>
-							<input id="codePost" required  class="form__textField form__textField--small" type="text" pattern="/^[a-zA-Z][0-9][a-zA-Z] *[0-9][a-zA-Z][0-9]$/" maxlength="7" minlength="6"/>
+							Code postal<span class="form__obligatoire">*</span></label></br>
+							<input name="codePost" id="codePost" required  class="form__textField form__textField--small" type="text" pattern="/^[a-zA-Z][0-9][a-zA-Z] *[0-9][a-zA-Z][0-9]$/" maxlength="7" minlength="6"/>
 						<span class="formulaire__erreur" id="err_zip"></span>
 
 					</fieldset>
 					<div class="courriel">
 						<label for="mail"  class="form__label--courriel" >
 							Courriel<span class="form__obligatoire">*</span></label>
-							<input id="mail" required class="form__textField form__textField--small" type="email" pattern="/^([\w\.\-]+)@([\w\-]+)((\.(\w){2,4})+)$/"/>
+							<input name="mail" id="mail" required class="form__textField form__textField--normal" type="email" pattern="/^([\w\.\-]+)@([\w\-]+)((\.(\w){2,4})+)$/"/>
 						<span class="formulaire__erreur" id="err_email"></span></br>
 
 
 						<input type="checkbox" id="infolettre" name="infolettre" value="infolettre">
 						<label for="infolettre" class="form__label" > J'accepte de m'inscrire à l'infolettre et de recevoir des nouvelles du Club.</label><br>
 					</div>
-						<button class="btn__sec2 precedent" type="submit">Précédent</button>
-						<button class="btn__sec2 suivant" type="submit">Suivant</button>
 
-					</form>
+					</div>
 
-				</section>
+				</fieldset>
 
 
 
-			<section class="sec3">
+			<fieldset class="sec3 step3 etatEtape">
 				<h2 class="form__h2">Paiement</h2>
-				<p class="form__st">Sous-total:<span id="sousTotal"></span> </p>
-				<p class="form__freqDon">Fréquence du don:<span id="freqDon"></span> </p>
+				<div class="underline"></div>
+				<p class="rappelPaiement form__st">Sous-total:<span id="sousTotal"></span> </p>
+				<p class="rappelPaiement form__freqDon">Fréquence du don:<span id="freqDon"></span> </p>
 
-				<form class="form__sec3">
+				<div class="form__sec3">
 					<label for="numCarte" class="form__label">
 						Numéro de carte<span class="form__obligatoire">*</span></label>
-						<input id="numCarte" required class="form__textField form__textField--small" type="text" />
+						<input name="numCarte" id="numCarte" required class="form__textField form__textField--normal" type="text" pattern="^[0-9]{4}[ ]?[0-9]{4}[ ]?[0-9]{4}[ ]?[0-9]{4}$ "/>
 					<span class="formulaire__erreur" id="err_numCarte"></span>
 
+					<div class="paiement__display">
+						<div class="div__exp">
 					<label for="expCarte" class="form__label">
-						Expiration<span class="form__obligatoire">*</span></label>
-						<input id="expCarte" required class="form__textField form__textField--small" type="text" />
-					<span class="formulaire__erreur" id="err_expCarte"></span>
+						Expiration<span class="form__obligatoire">*</span></label></br>
+						<input name="expCarte" id="expCarte" required class="form__textField form__textField--small" type="text" pattern="^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$"/>
+					<span class="formulaire__erreur" id="err_expCarte"></span></br>
+						</div>
 
-
+					<div class="div__cvv">
 					<label for="cvv" class="form__label">
-						CVV<span class="form__obligatoire">*</span></label>
-						<input id="cvv" required class="form__textField form__textField--small" type="text" />
+						CVV<span class="form__obligatoire">*</span></label></br>
+						<input name="cvv" id="cvv" required class="form__textField form__textField--small" type="text" pattern="^[0-9]{3}$"/>
 					<span class="formulaire__erreur" id="err_cvv"></span>
+					</div>
+					</div>
 
-					<button type="submit">Précédent</button>
-					<button type="submit">Suivant</button>
-				</form>
+				</div>
 
-			</section>
+			</fieldset>
 
-				<section class="sec4">
+				<fieldset class="sec4 step4 etatEtape">
 					<h2 class="form__h2">Confirmation</h2>
+					<div class="underline"></div>
 					<p class="conf__nom">NOM DU DONATEUR</p>
 					<p class="conf__don">RAPPEL DON</p>
 
@@ -224,11 +245,12 @@
 							<p class="total">Total:</p><span class="total__num"></span>
 						</div>
 					</div>
-					<button type="submit">Confirmer le paiement</button>
-					<button type="submit">Annuler</button>
+				</fieldset>
 
-				</section>
-			</section>
+				<button id="btnConf" type="submit" class="btn__sec4 confirmation btn--cache" >Confirmer le paiement</button>
+				<button id="btnPrec" type="button" class="btn__sec4 precedent btn--cache">Précédent</button>
+				<button id="btnSuiv" type="button" class="btn__sec4 suivant">Suivant</button>
+			</form>
 
 		</div>
 	</main>
@@ -238,6 +260,13 @@
 		<h3>Pied de page</h3>
 		<p>Lorem ipsum dolor nunc aut nunquam sit amet, consectetur adipiscing elit. Vivamus at est eros, vel fringilla urna. Pellentesque odio rhoncus</p>
 	</footer>
+
+	<script src="liaisons/js/validation.js"></script>
+	<script src="liaisons/js/stepLeft.js"></script>
+
+	<script>
+		validation.chargeJSON("liaisons/js/objJSONMessages.json");
+	</script>
 </body>
 
 </html>

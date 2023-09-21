@@ -722,6 +722,16 @@ body {
   max-width: 280px;
   padding: 0;
 }
+@media (min-width: 800px) {
+  .container {
+    max-width: 760px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+}
 
 h1 {
   font-size: 28px;
@@ -759,15 +769,29 @@ nav {
     font-size: 26px;
     font-weight: bold;
   }
-  p {
-    font-size: 24px;
-  }
   nav {
     font-size: 18px;
   }
 }
+@media (min-width: 1200px) {
+  p {
+    font-size: 24px;
+  }
+}
+.form {
+  background-color: white;
+  padding: 10px;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
+}
+
 ul {
   list-style: none;
+}
+@media (min-width: 800px) {
+  ul {
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 .path__list--item {
@@ -776,13 +800,37 @@ ul {
   align-items: start;
 }
 
+.etatEtape {
+  display: none;
+}
+
+.btn--cache {
+  display: none;
+}
+
+.formulaire__erreur {
+  color: #B60F0F;
+}
+
+.input__erreur > input {
+  border-color: #B60F0F;
+}
+
+.path__list--img {
+  margin-right: 5px;
+  font-weight: bolder;
+  align-self: center;
+}
+
+.inactive {
+  opacity: 40%;
+}
+
 .form .form__h2 {
   margin-bottom: 2px;
 }
 .form .sec1 {
-  background-color: white;
-  padding: 10px;
-  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
+  border: none;
 }
 .form .sec1 .underline {
   position: absolute;
@@ -824,6 +872,7 @@ ul {
   margin-bottom: 6px;
 }
 .form .sec1 .btn__sec1 {
+  text-decoration: none;
   background-color: #055D69;
   border-radius: 8px;
   color: white;
@@ -831,9 +880,7 @@ ul {
   border-color: transparent;
 }
 .form .sec2 {
-  background-color: white;
-  padding: 10px;
-  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
+  border: none;
 }
 .form .sec2 .underline {
   position: absolute;
@@ -853,6 +900,12 @@ ul {
   border-color: transparent;
   border-left-color: #1FBED2;
   border-left-width: 3px;
+  margin-top: 30px;
+}
+.form .sec2 .form__sec2 .form__fieldset .info__display {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .form .sec2 .form__sec2 .form__fieldset input {
   margin-top: 4px;
@@ -864,12 +917,17 @@ ul {
   padding: 4px 8px;
 }
 .form .sec2 .form__sec2 .courriel {
-  margin: 10px 0;
+  margin: 14px 0;
 }
 .form .sec2 .form__sec2 .courriel #infolettre {
   margin-top: 12px;
 }
+.form .sec2 .form__sec2 .courriel input {
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
 .form .sec2 .form__sec2 .btn__sec2 {
+  text-decoration: none;
   background-color: #055D69;
   border-radius: 8px;
   color: white;
@@ -877,14 +935,80 @@ ul {
   border-color: transparent;
 }
 .form .sec3 {
-  background-color: white;
-  padding: 10px;
-  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
+  border: none;
+}
+.form .sec3 .underline {
+  position: absolute;
+  overflow: hidden;
+  width: 114px;
+  height: 6px;
+  content: " ";
+  background-color: #1FBED2;
+}
+.form .sec3 .form__st {
+  margin: 20px 0 0 0;
+}
+.form .sec3 .form__freqDon {
+  margin: 6px 0 20px 0;
+}
+.form .sec3 .form__sec3 .paiement__display {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.form .sec3 .form__sec3 .paiement__display div {
+  margin: 0 50px 20px 0;
+}
+.form .sec3 .form__sec3 input {
+  margin-top: 4px;
+  margin-bottom: 14px;
+}
+.form .sec3 .btn__sec3 {
+  text-decoration: none;
+  background-color: #055D69;
+  border-radius: 8px;
+  color: white;
+  padding: 10px 26px;
+  border-color: transparent;
 }
 .form .sec4 {
-  background-color: white;
-  padding: 10px;
-  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
+  border: none;
+}
+.form .sec4 .underline {
+  position: absolute;
+  overflow: hidden;
+  width: 170px;
+  height: 6px;
+  content: " ";
+  background-color: #1FBED2;
+}
+.form .sec4 .conf__nom,
+.form .sec4 .conf__h3 {
+  margin: 20px 0 0 0;
+}
+.form .sec4 .conf__don,
+.form .sec4 .conf__h4 {
+  margin: 6px 0 20px 0;
+}
+.form .conf__infos--prix p {
+  margin: 5px 0;
+}
+.form .btn__sec4 {
+  margin-top: 10px;
+  text-decoration: none;
+  background-color: #055D69;
+  border-radius: 8px;
+  color: white;
+  padding: 10px 26px;
+  border-color: transparent;
+}
+
+.form__textField--small {
+  width: 60px;
+}
+
+.form__textField--medium {
+  width: 100px;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -62,13 +62,10 @@
 
 @import '../../../node_modules/normalize.scss/normalize.scss';
 
- @mixin sectionForms{
-   background-color: white;
-   padding: 10px;
-   box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2) ;
- }
+
 
  @mixin styleBtn{
+   text-decoration: none;
    background-color:$darkBlue;
    border-radius: 8px;
    color:white;
@@ -84,6 +81,12 @@ body{
    margin: 0 auto;
    max-width: 280px;
    padding: 0;
+   @media (min-width: 800px){
+     max-width:760px;
+   }
+   @media (min-width: 1200px){
+     max-width: 1200px;
+   }
  }
 
 
@@ -121,17 +124,31 @@ h1{
      font-size: 26px;
      font-weight: bold;
    }
-   p{
-     font-size: 24px;
-   }
    nav{
      font-size: 18px;
    }
+ }
+
+ @media (min-width: 1200px) {
+   p{
+     font-size: 24px;
+   }
+
+ }
+
+ .form{
+   background-color: white;
+   padding: 10px;
+   box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2) ;
 
  }
 
  ul{
    list-style: none;
+   @media(min-width: 800px){
+     display: flex;
+     flex-direction: row;
+   }
  }
  .path__list--item{
    display: flex;
@@ -140,13 +157,50 @@ h1{
  }
 
 
+ //MENU
+
+
+
+
+
+.etatEtape{
+  display: none;
+}
+
+.btn--cache{
+  display:none;
+}
+
+
+
+// ERREURS
+
+ .formulaire__erreur{
+   color:$error;
+ }
+
+ .input__erreur > input{
+   border-color: $error;
+ }
+
+
+
+ .path__list--img{
+   margin-right: 5px;
+   font-weight: bolder;
+   align-self: center;
+ }
+ .inactive{
+   opacity: 40%;
+ }
+
 
  .form{
    .form__h2{
      margin-bottom: 2px;
    }
    .sec1{
-    @include sectionForms;
+     border: none;
      .underline{
        position: absolute;
        overflow: hidden;
@@ -192,9 +246,8 @@ h1{
 
      }
    }
-   .sec2{
-     @include sectionForms;
-
+   .sec2{;
+border:none;
      .underline{
        position: absolute;
        overflow: hidden;
@@ -214,6 +267,14 @@ h1{
          border-color:transparent;
          border-left-color:$flashBlue;
          border-left-width: 3px;
+         margin-top: 30px;
+
+         .info__display{
+           display: flex;
+           flex-direction: row;
+           justify-content: space-between;
+         }
+
 
         input{
           margin-top: 4px;
@@ -226,9 +287,13 @@ h1{
          }
        }
        .courriel{
-         margin: 10px 0;
+         margin: 14px 0;
          #infolettre{
            margin-top: 12px;
+         }
+         input{
+           margin-top: 4px;
+           margin-bottom: 8px;
          }
        }
 
@@ -239,12 +304,85 @@ h1{
      }
    }
    .sec3{
-     @include sectionForms;
+border:none;
+
+     .underline{
+       position: absolute;
+       overflow: hidden;
+       width: 114px;
+       height: 6px;
+       content: '\a0';
+       background-color: $flashBlue;
+     }
+      .form__st{
+        margin: 20px 0 0 0;
+      }
+
+     .form__freqDon{
+       margin: 6px 0 20px 0;
+     }
+
+     .form__sec3{
+
+       .paiement__display{
+         display: flex;
+         flex-direction: row;
+         justify-content: flex-start;
+         div{
+           margin:0 50px 20px 0;
+         }
+       }
+       input{
+         margin-top: 4px;
+         margin-bottom: 14px;
+       }
+     }
+
+     .btn__sec3{
+       @include styleBtn;
+     }
+
    }
    .sec4{
-     @include sectionForms;
+
+border:none;
+     .underline{
+       position: absolute;
+       overflow: hidden;
+       width: 170px;
+       height: 6px;
+       content: '\a0';
+       background-color: $flashBlue;
+     }
+     .conf__nom,
+     .conf__h3{
+       margin: 20px 0 0 0;
+     }
+
+     .conf__don,
+     .conf__h4{
+       margin: 6px 0 20px 0;
+     }
    }
 
+   .conf__infos--prix{
+     p{
+       margin: 5px 0;
+     }
+   }
+   .btn__sec4{
+     margin-top: 10px;
+     @include styleBtn;
+   }
 
+ }
+
+
+
+ .form__textField--small{
+   width: 60px;
+ }
+ .form__textField--medium{
+   width: 100px;
  }
 
