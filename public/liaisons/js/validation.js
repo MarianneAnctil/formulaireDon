@@ -8,6 +8,8 @@ var validation = {
 
     noEtape:1,
 
+    secValide:false,
+
      btnSuivant : document.getElementById('btnSuiv'),
    btnPrecedent:  document.getElementById('btnPrec'),
    btnConfirmer : document.getElementById('btnConf'),
@@ -34,10 +36,16 @@ var validation = {
         //défini les écouteurs d'événement des boutons submit et reset
         this.refFormulaire.addEventListener('submit', this.validerFormulaire.bind(this));
         this.refFormulaire.addEventListener('reset', this.effacerFormulaire.bind(this));
+        this.btnSuivant.addEventListener("click", this.validerRadioType.bind(this));
+        this.btnSuivant.addEventListener("click", this.validerRadioDon.bind(this));
+        this.btnSuivant.addEventListener("click", this.validerRadioHommage.bind(this));
+        this.btnSuivant.addEventListener("click", this.validerRadioFreq.bind(this));
 
-        this.btnSuivant.addEventListener('click', this.changementEtape.bind(this));
+
+
+        this.btnSuivant.addEventListener('click', this.validerSection1.bind(this));
         this.btnPrecedent.addEventListener('click', this.changementEtape.bind(this));
-        this.btnConfirmer.addEventListener('click', this.changementEtape.bind(this));
+        // this.btnConfirmer.addEventListener('click', this.changementEtape.bind(this));
 
 
         //défini les écouteurs blur des éléments de texte du formulaire
@@ -51,13 +59,12 @@ var validation = {
         this.refFormulaire.querySelector("#expCarte").addEventListener("blur", this.validerChampTexte.bind(this));
         this.refFormulaire.querySelector("#cvv").addEventListener("blur", this.validerChampTexte.bind(this));
 
-        this.refFormulaire.querySelector("#pays").addEventListener("blur", this.validerSelect.bind(this));
-        this.refFormulaire.querySelector("#province").addEventListener("blur", this.validerSelect.bind(this));
+        this.refFormulaire.querySelector("#pays").addEventListener("blur", this.validerSelectPays.bind(this));
+        this.refFormulaire.querySelector("#province").addEventListener("blur", this.validerSelectProv.bind(this));
 
-        this.refFormulaire.querySelector(".typeDon").addEventListener("blur", this.validerCheck.bind(this));
-        this.refFormulaire.querySelector(".montantDon").addEventListener("blur", this.validerCheck.bind(this));
-        this.refFormulaire.querySelector(".hommageDon").addEventListener("blur", this.validerCheck.bind(this));
-        this.refFormulaire.querySelector(".freqDon").addEventListener("blur", this.validerCheck.bind(this));
+
+
+
 
         this.tValide["prenom"]=false;
         this.tValide["nom"]=false;
@@ -67,10 +74,6 @@ var validation = {
         this.tValide["codePost"]=false;
         this.tValide["pays"]=false;
         this.tValide["province"]=false;
-        this.tValide["type--don"]=false;
-        this.tValide["montant--don"]=false;
-        this.tValide["hommage--don"]=false;
-        this.tValide["freq--don"]=false;
         this.tValide["numCarte"]=false;
         this.tValide["expCarte"]=false;
         this.tValide["cvv"]=false;
@@ -123,42 +126,126 @@ var validation = {
         this.modifierTableauValidation(objCible.getAttribute("name"),valide);
     },
 
-    validerSelect: function(evenement){
-        console.log("validerChampTexte "+  this.tErreurs);
-        //champ invalide par défaut
-        var valide=false;
-        //objet du DOM déclancheur, initialise un objet jQuery
-        var objCible=evenement.currentTarget;
+    // validerSelect: function(evenement){
+    //
+    //     console.log("validerChampTexte "+  this.tErreurs);
+    //     //champ invalide par défaut
+    //     var valide=false;
+    //     //objet du DOM déclancheur, initialise un objet jQuery
+    //     var objCible=evenement.currentTarget;
+    //
+    //     if(this.validerSiSelected(objCible)===true){
+    //         //si vide, afficher le message d'erreur
+    //         this.afficherChampErreur(objCible, this.tErreurs[objCible.getAttribute("name")]["vide"]);
+    //     }else{
+    //         valide = true;
+    //         //effacer le champ d'erreur
+    //         this.effacerChampErreur(objCible);
+    //     }
+    // },
 
-        if(this.validerSiSelected(objCible)===true){
-            //si vide, afficher le message d'erreur
-            this.afficherChampErreur(objCible, this.tErreurs[objCible.getAttribute("name")]["vide"]);
-            console.log('rrfru')
-        }else{
-            valide = true;
-            //effacer le champ d'erreur
-            this.effacerChampErreur(objCible);
+
+    validerRadioType: function(valide){
+        const radios = document.querySelectorAll('input[name="radio__type"]');
+        const errDon = document.getElementById("err_type");
+        let isChecked = false;
+
+        radios.forEach(function(radio) {
+            if (radio.checked) {
+                isChecked = true;
+            }
+        });
+        radios.forEach(function(radio) {
+            radio.addEventListener("change", function() {
+                errDon.textContent = ""; // Efface le message d'erreur lorsque le bouton radio est coché
+            });
+        });
+
+        if (!isChecked) {
+            errDon.textContent = "Veuillez choisir un type de don.";
+        } else {
+            errDon.textContent = ""; // Efface le message d'erreur s'il était affiché précédemment
         }
-
-
+        return isChecked;
     },
 
-    validerCheck: function(evenement){
-        console.log("validerChampTexte "+  this.tErreurs);
-        //champ invalide par défaut
-        var valide=false;
-        //objet du DOM déclancheur, initialise un objet jQuery
-        var objCible=evenement.currentTarget;
+    validerRadioDon: function(valide){
+        const radios = document.querySelectorAll('input[name="radio__don"]');
+        const errDon = document.getElementById("err_don");
+        let isChecked = false;
 
-        if(this.validerSiChecked(objCible)===true){
-            //si vide, afficher le message d'erreur
-            this.afficherChampErreur(objCible, this.tErreurs[objCible.getAttribute("name")]["vide"]);
-        }else{
-            valide = true;
-            //effacer le champ d'erreur
-            this.effacerChampErreur(objCible);
+        radios.forEach(function(radio) {
+            if (radio.checked) {
+                console.log('ici')
+                isChecked = true;
+            }
+        });
+        radios.forEach(function(radio) {
+            radio.addEventListener("change", function() {
+                errDon.textContent = ""; // Efface le message d'erreur lorsque le bouton radio est coché
+            });
+        });
+
+        if (!isChecked) {
+            errDon.textContent = "Veuillez choisir un montant.";
+        } else {
+            errDon.textContent = ""; // Efface le message d'erreur s'il était affiché précédemment
         }
+        return isChecked;
+    },
 
+
+    validerRadioHommage: function(valide){
+        const radios = document.querySelectorAll('input[name="radio__hommage"]');
+        const errDon = document.getElementById("err_hommage");
+        let isChecked = false;
+
+
+        radios.forEach(function(radio) {
+            if (radio.checked) {
+                isChecked = true;
+                console.log('true')
+
+            }
+        });
+        radios.forEach(function(radio) {
+            radio.addEventListener("change", function() {
+                console.log('in')
+                errDon.textContent = ""; // Efface le message d'erreur lorsque le bouton radio est coché
+            });
+        });
+
+        if (!isChecked) {
+            errDon.textContent = "Veuillez choisir le type d'hommage.";
+        } else {
+            errDon.textContent = ""; // Efface le message d'erreur s'il était affiché précédemment
+        }
+        return isChecked;
+    },
+
+    validerRadioFreq: function(valide){
+        const radios = document.querySelectorAll('input[name="radio__freq"]');
+        const errDon = document.getElementById("err_freq");
+        let isChecked = false;
+
+
+        radios.forEach(function(radio) {
+            if (radio.checked) {
+                isChecked = true;
+            }
+        });
+        radios.forEach(function(radio) {
+            radio.addEventListener("change", function() {
+                errDon.textContent = ""; // Efface le message d'erreur lorsque le bouton radio est coché
+            });
+        });
+
+        if (!isChecked) {
+            errDon.textContent = "Veuillez choisir la fréquence du don.";
+        } else {
+            errDon.textContent = ""; // Efface le message d'erreur s'il était affiché précédemment
+        }
+        return isChecked;
 
     },
 
@@ -177,6 +264,7 @@ var validation = {
                 var objCible=this.refFormulaire.querySelector("#"+champ);
                 //ici deux possibilité de message, vide ou pattern
                 if(this.validerSiVide(objCible)===true){
+                    console.log(objCible)
                     this.afficherChampErreur(objCible, this.tErreurs[objCible.getAttribute("name")]["vide"]);
                 }else{
                     if(objCible.hasAttribute("pattern")){
@@ -196,9 +284,6 @@ var validation = {
         }
 
         // si le formulaire n'est pas valide, on annule la soumission du formulaire de l'événement submit
-        if(valide === false){
-            evenement.preventDefault();
-        }
     },
 
 
@@ -209,6 +294,7 @@ var validation = {
      * @returns {boolean}
      */
     validerSiVide: function(objCible){
+        console.log(objCible);
         var valide = false; //false = champ vide
         if(objCible.value === ""){
             valide = true; //si false, champ contient quelque chose
@@ -216,18 +302,31 @@ var validation = {
         return valide;
     },
 
-    validerSiSelected: function(objCible){
+    validerSelectPays: function(select){
         var valide = false; //false = champ vide
-        if(objCible.value === "select"){
+        const errPays = document.getElementById("err_pays");
+
+        if(select.value !== "select"){
             valide = true; //si false, champ contient quelque chose
+            errPays.textContent=""
+        }else{
+            valide=false;
+            errPays.textContent="Veuillez choisir un pays."
         }
         return valide;
     },
 
-    validerSiChecked: function(objCible){
+    validerSelectProv: function(select){
+        console.log(select);
         var valide = false; //false = champ vide
-        if(objCible.checked === false){
+        const errProv = document.getElementById("err_province");
+
+        if(select.value !== "select"){
             valide = true; //si false, champ contient quelque chose
+            errProv.textContent=""
+        }else{
+            valide=false;
+            errProv.textContent="Veuillez choisir une province."
         }
         return valide;
     },
@@ -238,9 +337,11 @@ var validation = {
      * @param message
      */
     afficherChampErreur: function (objCible,message){
+        console.log(objCible.getAttribute("id"));
         var nom = "err_"+objCible.getAttribute("id");
         document.getElementById(nom).innerHTML=message;
         objCible.parentNode.classList.add("input__erreur");
+        console.log(nom);
     },
 
     /**
@@ -248,8 +349,10 @@ var validation = {
      * @param objCible
      */
     effacerChampErreur: function(objCible) {
+        console.log(objCible.getAttribute("id"));
         var nom = "err_"+objCible.getAttribute("id");
         document.getElementById(nom).innerHTML="";
+        console.log(nom);
         objCible.parentNode.classList.remove("input__erreur");
     },
 
@@ -279,16 +382,53 @@ var validation = {
     },
 
 
+
+
+    validerSection1:function(){
+        console.log(this.noEtape);
+        if(this.noEtape===1){
+        if(this.validerRadioDon() === true && this.validerRadioFreq()===true && this.validerRadioHommage()===true && this.validerRadioType()){
+            this.changementEtape(this.btnSuivant);
+            this.secValide=true;
+
+
+        }else{
+            this.secValide =false;
+        }}else if(this.noEtape===2){
+            if(this.tValide["prenom"]===true &&this.tValide["nom"]===true &&this.tValide["adresse"]===true &&this.tValide["ville"]===true &&this.tValide["codePost"]===true){
+                this.changementEtape(this.btnSuivant);
+
+
+            }else{
+                this.validerFormulaire();
+                this.secValide =false;
+            }
+        }else if(this.noEtape===3){
+            if(this.tValide["numCarte"]===true &&this.tValide["expCarte"]===true &&this.tValide["cvv"]===true){
+                this.changementEtape(this.btnSuivant);
+
+
+            }else{
+                this.validerFormulaire();
+                this.secValide =false;
+            }
+        }
+
+    },
+
     changementEtape:function(evenement){
         var objCible=evenement.currentTarget;
         console.log('debut' + this.noEtape);
 
-        if(objCible.id === 'btnSuiv'){
+        if(evenement.id === 'btnSuiv'){
             this.noEtape++;
-            if(this.noEtape > 1){
+            if(this.noEtape >= 1){
                 this.btnPrecedent.classList.remove('btn--cache');
                 this.refFormulaire.querySelector('.step'+(this.noEtape-1)).classList.add('etatEtape');
                 this.refFormulaire.querySelector('.step'+(this.noEtape)).classList.remove('etatEtape');
+
+                document.querySelector('.path'+(this.noEtape-1)).classList.add('inactive');
+                document.querySelector('.path'+(this.noEtape)).classList.remove('inactive');
             }
             if(this.noEtape >= 4){
                 this.btnSuivant.classList.add('btn--cache');
@@ -298,6 +438,9 @@ var validation = {
             this.noEtape--;
             this.refFormulaire.querySelector('.step'+(this.noEtape)).classList.remove('etatEtape');
             this.refFormulaire.querySelector('.step'+(this.noEtape+1)).classList.add('etatEtape');
+
+            document.querySelector('.path'+(this.noEtape+1)).classList.add('inactive');
+            document.querySelector('.path'+(this.noEtape)).classList.remove('inactive');
             if(this.noEtape <= 1){
                 this.btnPrecedent.classList.add('btn--cache');
             }

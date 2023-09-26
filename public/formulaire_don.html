@@ -37,25 +37,25 @@
 		<div id="container" class="container">
 			<section class="path">
 				<ul id="progressBar" class="path__list">
-				<li class="path__list--item ">
+				<li class="path__list--item path1">
 					<img class="path__list--img" src="liaisons/images/SVG/moneyBag.svg" alt="*" style="width: 16%">
 					<p>1. Votre don</p>
 				</li>
-				<li class="path__list--item inactive">
+				<li class="path__list--item inactive path2">
 					<img class="path__list--img" src="liaisons/images/SVG/infoUser.svg" alt="*" style="width: 12%">
 					<p>2. Vos informations</p>
 				</li>
-				<li class="path__list--item inactive">
+				<li class="path__list--item inactive path3">
 					<img class="path__list--img " src="liaisons/images/SVG/creditCard.svg" alt="*" style="width: 18%">
 					<p>3. Paiement</p>
 				</li>
-				<li class="path__list--item inactive">
+				<li class="path__list--item inactive path4">
 					<img class="path__list--img" src="liaisons/images/SVG/confirmation.svg" alt="*" style="width: 14%">
 					<p>4. Confirmation</p>
 				</li>
 				</ul>
 			</section>
-			<form action="*" class="form" method="get">
+			<form action="" class="form" method="get">
 				<fieldset class="sec1 step1" >
 				<h2 class="form__h2" >Don</h2>
 					<div class="underline"></div>
@@ -70,14 +70,14 @@
 					<h3 class="form__h3">Sélectionner le montant ($ CAD)<span class="form__obligatoire">*</span></h3>
 					<span class="formulaire__erreur" id="err_don"></span>
 					<div class="form__don">
-					<label for="25" class="form__label--radio montantDon" ><input id="25" class=" form__input--radio" type="radio" name="radio__don" value="25" required /> 25$</label>
-					<label for="50" class="form__label--radio montantDon" ><input id="50" class="form__input--radio" type="radio" name="radio__don" value="50" /> 50$</label>
-					<label for="100" class="form__label--radio montantDon" ><input id="100" class="form__input--radio" type="radio" name="radio__don" value="100" /> 100$</label>
-					<label for="250" class="form__label--radio montantDon" ><input id="250" class="form__input--radio" type="radio" name="radio__don" value="250" /> 250$</label>
-					<label for="500" class="form__label--radio montantDon" ><input id="500" class="form__input--radio" type="radio" name="radio__don" value="500" /> 500$</label>
-					<label for="autre" class="form__label--radio montantDon" ><input id="autre" class="form__input--radio" type="radio" name="radio__don" value="autre" /> Autre</label>
+					<label for="25" class="form__label--radio " ><input id="25" class=" form__input--radio montantDon" type="radio" name="radio__don" value="25" required /> 25$</label>
+					<label for="50" class="form__label--radio montantDon " ><input id="50" class="form__input--radio" type="radio" name="radio__don" value="50" /> 50$</label>
+					<label for="100" class="form__label--radio " ><input id="100" class="form__input--radio montantDon" type="radio" name="radio__don" value="100" /> 100$</label>
+					<label for="250" class="form__label--radio " ><input id="250" class="form__input--radio montantDon" type="radio" name="radio__don" value="250" /> 250$</label>
+					<label for="500" class="form__label--radio " ><input id="500" class="form__input--radio montantDon" type="radio" name="radio__don" value="500" /> 500$</label>
+					<label for="autre" class="form__label--radio " ><input id="autre" class="form__input--radio montantDon" type="radio" name="radio__don" value="autre" /> Autre</label>
 					</div>
-					<div class="form__choisirMontant">
+					<div class="form__choisirMontant montantCache">
 							<label for="montant" class="form__label--radio" >
 								Montant:
 								<input id="montant" type="text" /> <span class="formulaire__erreur" id="err_montant"></span>
@@ -141,7 +141,7 @@
 						<div class="div__app">
 						<label for="app"  class="form__label" >
 							Appartement</label></br>
-							<input name="app" id="app" class="form__textField form__textField--small" type="text" />
+							<input name="app" id="app" class="form__textField form__textField--small" type="text" /><span class="formulaire__erreur" id="err_app"></span>
 						</div>
 						</div>
 
@@ -164,7 +164,7 @@
 					</select></br>
 
 					<label for="province" class="form__label" >Province<span class="form__obligatoire">*</span> </label>
-						<span class="formulaire__erreur" id="err_prov"></span>
+						<span class="formulaire__erreur" id="err_province"></span>
 
 					<select name="province" required  id="province">
 						<option value="select">Sélectionner une province</option>
@@ -176,15 +176,15 @@
 
 						<label for="codePost"  class="form__label" >
 							Code postal<span class="form__obligatoire">*</span></label></br>
-							<input name="codePost" id="codePost" required  class="form__textField form__textField--small" type="text" pattern="/^[a-zA-Z][0-9][a-zA-Z] *[0-9][a-zA-Z][0-9]$/" maxlength="7" minlength="6"/>
-						<span class="formulaire__erreur" id="err_zip"></span>
+							<input name="codePost" id="codePost" required  class="form__textField form__textField--small" type="text" pattern="^[a-zA-Z][0-9][a-zA-Z] [0-9][a-zA-Z][0-9]$" maxlength="7" minlength="6"/>
+						<span class="formulaire__erreur" id="err_codePost"></span>
 
 					</fieldset>
 					<div class="courriel">
 						<label for="mail"  class="form__label--courriel" >
 							Courriel<span class="form__obligatoire">*</span></label>
-							<input name="mail" id="mail" required class="form__textField form__textField--normal" type="email" pattern="/^([\w\.\-]+)@([\w\-]+)((\.(\w){2,4})+)$/"/>
-						<span class="formulaire__erreur" id="err_email"></span></br>
+							<input name="mail" id="mail" required class="form__textField form__textField--normal" type="email" pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"/>
+						<span class="formulaire__erreur" id="err_mail"></span></br>
 
 
 						<input type="checkbox" id="infolettre" name="infolettre" value="infolettre">
@@ -206,7 +206,7 @@
 				<div class="form__sec3">
 					<label for="numCarte" class="form__label">
 						Numéro de carte<span class="form__obligatoire">*</span></label>
-						<input name="numCarte" id="numCarte" required class="form__textField form__textField--normal" type="text" pattern="^[0-9]{4}[ ]?[0-9]{4}[ ]?[0-9]{4}[ ]?[0-9]{4}$ "/>
+						<input name="numCarte" id="numCarte" required class="form__textField form__textField--normal" type="text" pattern="^[0-9]{4}[ ]?[0-9]{4}[ ]?[0-9]{4}[ ]?[0-9]{4}$"/>
 					<span class="formulaire__erreur" id="err_numCarte"></span>
 
 					<div class="paiement__display">
@@ -257,12 +257,10 @@
 
 	
 	<footer>
-		<h3>Pied de page</h3>
-		<p>Lorem ipsum dolor nunc aut nunquam sit amet, consectetur adipiscing elit. Vivamus at est eros, vel fringilla urna. Pellentesque odio rhoncus</p>
+<p><small>© Marianne Anctil — Réalisation de produits numériques intéractifs</small></p>
 	</footer>
 
 	<script src="liaisons/js/validation.js"></script>
-	<script src="liaisons/js/stepLeft.js"></script>
 
 	<script>
 		validation.chargeJSON("liaisons/js/objJSONMessages.json");
@@ -274,15 +272,15 @@
 
 <!--
   TO DO LIST
-  - make nav
-  - js for menu
-  - js for validation (See teacher file)
-  - css for pages
-  - step left system
-  - add SVGs
+  - js/css pour nav
+  - verif validation/reste bouton radio a faire
+  - ajouter check pour etapes
+  - touche final css (bouton/ alignement format table/ footer/ nav)
 
 
-
-
+  VALIDATION
+   * faire une fonction par etape de validation
+   * le btn suivant se fait appeler dans la bonne fonction en utilisant le compteur d'étape, donc quand on est a l'étape 1, donc le compteur est a 1, le btn va se faire appeler par la foncton 1
+   * il faut donc réorganiser le code.
 
   -->

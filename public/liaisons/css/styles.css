@@ -800,6 +800,10 @@ ul {
   align-items: start;
 }
 
+.montantCache {
+  display: none;
+}
+
 .etatEtape {
   display: none;
 }
