@@ -69,8 +69,24 @@
    background-color:$darkBlue;
    border-radius: 8px;
    color:white;
-   padding: 10px 26px;
+   padding: 10px 10px;
    border-color: transparent;
+   width: 240px;
+ }
+
+ .boutons{
+   display:flex;
+   flex-direction: column;
+   align-items: center;
+
+   @media (min-width: 800px){
+     flex-direction: row-reverse;
+     justify-content: center;
+
+     #btnPrec{
+         margin-right: 40px;
+     }
+   }
  }
 
 
@@ -89,6 +105,15 @@ body{
    }
  }
 
+ .logo{
+   max-width: 100% ;
+   width: 200px;
+   margin:20px 0;
+
+   @media (min-width: 800px){
+     width: 300px;
+   }
+ }
 
 h1{
   font-size: 28px;
@@ -97,10 +122,16 @@ h1{
  h2{
    font-size: 24px;
    font-weight: bold;
+   color:$blueishGrey;
  }
 
  h3{
    font-size: 20px;
+   font-weight: bold;
+   color:$darkBlue;
+ }
+ h4{
+   font-size: 18px;
    font-weight: bold;
  }
  p{
@@ -122,6 +153,10 @@ h1{
 
    h3{
      font-size: 26px;
+     font-weight: bold;
+   }
+   h4{
+     font-size: 22px;
      font-weight: bold;
    }
    nav{
@@ -156,8 +191,7 @@ h1{
    align-items: start;
  }
 
-
- //MENU
+ //DISPLAYS
 
 
 .montantCache{
@@ -186,6 +220,7 @@ h1{
  }
 
 
+//LISTE ETAPES
 
  .path__list--img{
    margin-right: 5px;
@@ -197,7 +232,15 @@ h1{
  }
 
 
+ //FORM
+
  .form{
+   label{
+     color:$blueishGrey;
+   }
+   @media (min-width: 1200px) {
+     padding: 15px 150px 50px 150px;
+   }
    .form__h2{
      margin-bottom: 2px;
    }
@@ -210,38 +253,27 @@ h1{
        height: 6px;
        content: '\a0';
        background-color: $flashBlue;
+       @media (min-width: 800px) {
+         width:70px;
+       }
      }
      .form__h3{
        margin-bottom: 10px;
      }
-     .form__typeDon{
-       display: flex;
-       flex-direction: column;
-       label{
-         margin-bottom: 6px;
-       }
-     }
-   .form__don{
-     display: flex;
-     flex-direction: column;
-     label{
-       margin-bottom: 6px;
-     }
-   }
-     .form__hommage{
-       display: flex;
-       flex-direction: column;
-       label{
-         margin-bottom: 6px;
-       }
-     }
+     .form__typeDon,
+     .form__don,
+     .form__hommage,
      .form__freqDon{
        display: flex;
        flex-direction: column;
        label{
          margin-bottom: 6px;
+         @media (min-width: 800px) {
+           font-size: 2rem;
+         }
        }
      }
+
 
      .btn__sec1{
       @include styleBtn;
@@ -257,9 +289,22 @@ border:none;
        height: 6px;
        content: '\a0';
        background-color: $flashBlue;
+       @media (min-width: 800px) {
+         width:145px;
+       }
      }
      legend{
        font-size: 20px;
+       color: $darkBlue;
+       @media (min-width: 800px) {
+         font-size: 2.6rem;
+       }
+     }
+
+     label{
+       @media (min-width: 800px) {
+         font-size: 2.4rem;
+       }
      }
 
      .form__sec2{
@@ -275,17 +320,29 @@ border:none;
            display: flex;
            flex-direction: row;
            justify-content: space-between;
+           @media (min-width: 800px) {
+             justify-content: normal;
+             :first-child{
+               padding-right: 70px;
+             }
+           }
          }
 
 
         input{
           margin-top: 4px;
           margin-bottom: 14px;
+          @media (min-width: 1200px) {
+            margin-bottom: 22px;
+          }
         }
          select{
            margin-top: 8px;
            margin-bottom: 14px;
            padding: 4px 8px;
+           @media (min-width: 1200px) {
+             margin-bottom: 22px;
+           }
          }
        }
        .courriel{
@@ -315,6 +372,9 @@ border:none;
        height: 6px;
        content: '\a0';
        background-color: $flashBlue;
+       @media (min-width: 800px) {
+         width:160px;
+       }
      }
       .form__st{
         margin: 20px 0 0 0;
@@ -325,6 +385,11 @@ border:none;
      }
 
      .form__sec3{
+       label{
+         @media (min-width: 800px) {
+           font-size: 2.4rem;
+         }
+       }
 
        .paiement__display{
          display: flex;
@@ -355,6 +420,9 @@ border:none;
        height: 6px;
        content: '\a0';
        background-color: $flashBlue;
+       @media (min-width: 800px) {
+         width:240px;
+       }
      }
      .conf__nom,
      .conf__h3{
@@ -388,3 +456,7 @@ border:none;
    width: 100px;
  }
 
+
+ footer{
+   text-align: center;
+ }

@@ -13,6 +13,7 @@ var validation = {
      btnSuivant : document.getElementById('btnSuiv'),
    btnPrecedent:  document.getElementById('btnPrec'),
    btnConfirmer : document.getElementById('btnConf'),
+   btnAutre : document.getElementById('autre'),
 
 
 
@@ -41,11 +42,14 @@ var validation = {
         this.btnSuivant.addEventListener("click", this.validerRadioHommage.bind(this));
         this.btnSuivant.addEventListener("click", this.validerRadioFreq.bind(this));
 
+        this.btnAutre.addEventListener('click', this.afficherChamp.bind(this));
+        this.btnAutre.addEventListener('blur', this.cacheChamp.bind(this));
+
 
 
         this.btnSuivant.addEventListener('click', this.validerSection1.bind(this));
         this.btnPrecedent.addEventListener('click', this.changementEtape.bind(this));
-        // this.btnConfirmer.addEventListener('click', this.changementEtape.bind(this));
+        this.btnConfirmer.addEventListener('submit', this.validerSection1.bind(this));
 
 
         //défini les écouteurs blur des éléments de texte du formulaire
@@ -59,8 +63,6 @@ var validation = {
         this.refFormulaire.querySelector("#expCarte").addEventListener("blur", this.validerChampTexte.bind(this));
         this.refFormulaire.querySelector("#cvv").addEventListener("blur", this.validerChampTexte.bind(this));
 
-        this.refFormulaire.querySelector("#pays").addEventListener("blur", this.validerSelectPays.bind(this));
-        this.refFormulaire.querySelector("#province").addEventListener("blur", this.validerSelectProv.bind(this));
 
 
 
@@ -176,7 +178,6 @@ var validation = {
 
         radios.forEach(function(radio) {
             if (radio.checked) {
-                console.log('ici')
                 isChecked = true;
             }
         });
@@ -204,13 +205,13 @@ var validation = {
         radios.forEach(function(radio) {
             if (radio.checked) {
                 isChecked = true;
-                console.log('true')
+
 
             }
         });
         radios.forEach(function(radio) {
             radio.addEventListener("change", function() {
-                console.log('in')
+
                 errDon.textContent = ""; // Efface le message d'erreur lorsque le bouton radio est coché
             });
         });
@@ -249,6 +250,25 @@ var validation = {
 
     },
 
+    afficherChamp:function(){
+        const champMontant = document.getElementById('champMontant');
+        const input = document.getElementById('autre');
+        console.log(input.checked)
+        champMontant.classList.remove('montantCache');
+
+    },
+
+
+    cacheChamp:function(){
+        const champMontant = document.getElementById('champMontant');
+        const input = document.getElementById('autre');
+        console.log(input.checked)
+        if(champMontant.checked ===true){
+            champMontant.classList.add('montantCache');
+        }
+
+    },
+
     /**
      * Méthode de validation finale du formulaire et d'envoi
      * @param evenement
@@ -264,7 +284,6 @@ var validation = {
                 var objCible=this.refFormulaire.querySelector("#"+champ);
                 //ici deux possibilité de message, vide ou pattern
                 if(this.validerSiVide(objCible)===true){
-                    console.log(objCible)
                     this.afficherChampErreur(objCible, this.tErreurs[objCible.getAttribute("name")]["vide"]);
                 }else{
                     if(objCible.hasAttribute("pattern")){
@@ -294,7 +313,6 @@ var validation = {
      * @returns {boolean}
      */
     validerSiVide: function(objCible){
-        console.log(objCible);
         var valide = false; //false = champ vide
         if(objCible.value === ""){
             valide = true; //si false, champ contient quelque chose
@@ -302,31 +320,33 @@ var validation = {
         return valide;
     },
 
-    validerSelectPays: function(select){
+    validerSelectPays: function(){
         var valide = false; //false = champ vide
         const errPays = document.getElementById("err_pays");
-
+        const select = document.getElementById("pays");
+        console.log('rentrer')
         if(select.value !== "select"){
             valide = true; //si false, champ contient quelque chose
-            errPays.textContent=""
+            errPays.innerHTML=""
         }else{
             valide=false;
-            errPays.textContent="Veuillez choisir un pays."
+            errPaysinnerHTML="Veuillez choisir un pays."
         }
         return valide;
     },
 
-    validerSelectProv: function(select){
-        console.log(select);
+    validerSelectProv: function(){
         var valide = false; //false = champ vide
         const errProv = document.getElementById("err_province");
+        const select = document.getElementById("province");
 
         if(select.value !== "select"){
             valide = true; //si false, champ contient quelque chose
-            errProv.textContent=""
+            errProv.innerHTML="";
         }else{
             valide=false;
-            errProv.textContent="Veuillez choisir une province."
+            errProv.innerHTML="Veuillez choisir une province."
+            console.log(errProv.innerText);
         }
         return valide;
     },
@@ -337,11 +357,9 @@ var validation = {
      * @param message
      */
     afficherChampErreur: function (objCible,message){
-        console.log(objCible.getAttribute("id"));
         var nom = "err_"+objCible.getAttribute("id");
         document.getElementById(nom).innerHTML=message;
         objCible.parentNode.classList.add("input__erreur");
-        console.log(nom);
     },
 
     /**
@@ -349,10 +367,10 @@ var validation = {
      * @param objCible
      */
     effacerChampErreur: function(objCible) {
-        console.log(objCible.getAttribute("id"));
+
         var nom = "err_"+objCible.getAttribute("id");
         document.getElementById(nom).innerHTML="";
-        console.log(nom);
+
         objCible.parentNode.classList.remove("input__erreur");
     },
 
@@ -395,7 +413,9 @@ var validation = {
         }else{
             this.secValide =false;
         }}else if(this.noEtape===2){
-            if(this.tValide["prenom"]===true &&this.tValide["nom"]===true &&this.tValide["adresse"]===true &&this.tValide["ville"]===true &&this.tValide["codePost"]===true){
+            this.validerSelectPays();
+            this.validerSelectProv()
+            if(this.tValide["prenom"]===true &&this.tValide["nom"]===true &&this.tValide["adresse"]===true &&this.tValide["ville"]===true &&this.tValide["codePost"]===true && this.validerSelectProv()===true && this.validerSelectPays()===true){
                 this.changementEtape(this.btnSuivant);
 
 
